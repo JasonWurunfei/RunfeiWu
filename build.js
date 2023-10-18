@@ -4,6 +4,11 @@ const execSync = require('child_process').execSync;
 const copyBlogImagesTo = 'public/images/blogs';
 const copyBlogImagesfrom = 'blogs/images';
 
+// create if not exist
+if (!fs.existsSync(copyBlogImagesTo)) {
+  fs.mkdirSync(copyBlogImagesTo);
+}
+
 //clear the folder
 fs.rmSync(copyBlogImagesTo, { recursive: true, force: true });
 fs.mkdirSync(copyBlogImagesTo)
