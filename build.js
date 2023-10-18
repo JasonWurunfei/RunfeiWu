@@ -4,6 +4,9 @@ const execSync = require('child_process').execSync;
 const copyBlogImagesTo = 'public/images/blogs';
 const copyBlogImagesfrom = 'blogs/images';
 
+execSync('ls -alh', {stdio: 'inherit'});
+execSync('cwd', {stdio: 'inherit'});
+
 // create if not exist
 if (!fs.existsSync(copyBlogImagesTo)) {
   fs.mkdirSync(copyBlogImagesTo);
