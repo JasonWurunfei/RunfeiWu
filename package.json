@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.9.0",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^4.11.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1"
   },

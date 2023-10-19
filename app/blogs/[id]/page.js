@@ -3,6 +3,9 @@ import path from 'path';
 import { remark } from 'remark';
 import html from 'remark-html';
 import matter from 'gray-matter';
+import hljs from 'highlight.js';
+import styles from './blog.module.css'
+import 'highlight.js/styles/atom-one-dark.css';
 
 const blogFolderPath = path.join(process.cwd(), 'blogs');
 const ids = fs.readdirSync(blogFolderPath)
@@ -16,6 +19,16 @@ function getBlogPath(id) {
 function replaceBlogImageURI(mdContent) {
   const pattern = /\!\[(.*)\]\(images\/(.*)\)/g
   return mdContent.replace(pattern, "![$1](\/images/blogs/$2)")
+}
+
+function highlight(html) {
+  //console.log(html)
+  const highlightedHTML = html.replace(/<pre><code class="language-(.*)">((.|\n|\s)*?)<\/code><\/pre>/gm,
+   (_, p1, p2) => {
+    const code = hljs.highlight(p2, {language: p1}).value
+    return `<pre><code class="language-${p1}">${code}</code></pre>`;
+   })
+  return highlightedHTML;
 }
 
 async function  getBlogData(id) {
@@ -34,9 +47,11 @@ async function  getBlogData(id) {
       .process(contentURI_Update);
     const contentHtml = processedContent.toString();
 
+    const highlightedHTML = highlight(contentHtml)
+
     const data = matterResult.data;
     return {
-      contentHtml,
+      highlightedHTML,
       ...data
     };
 }
@@ -44,10 +59,9 @@ async function  getBlogData(id) {
 export default async function Blog({ params }) {
   const data = await getBlogData(params.id);
   return (
-    <article>
-      <h1>{params.id}</h1>
-      <time datetime={data.datetime}>{data.datetime}</time>
-      <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+    <article className={styles.blog}>
+      <time dateTime={data.datetime}>{data.datetime}</time>
+      <div className={styles.content} dangerouslySetInnerHTML={{ __html: data.highlightedHTML }} />
     </article>
   )
 }

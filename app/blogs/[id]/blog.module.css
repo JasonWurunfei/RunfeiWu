@@ -1,0 +1,11 @@
+
+.content pre {
+  color: #abb2bf;
+  background: #282c34;
+  padding: 1rem;
+  text-wrap: wrap;
+}
+
+.content div.code {
+  white-space: pre;
+}
