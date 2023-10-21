@@ -6,6 +6,12 @@ import matter from 'gray-matter';
 import hljs from 'highlight.js';
 import styles from './blog.module.css'
 import 'highlight.js/styles/atom-one-dark.css';
+import { Lato } from 'next/font/google'
+import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
+import { getFormatTimeString } from '@/app/lib/time';
+
+const font = Lato({ subsets: ['latin'], weight: ['300', '400', '700']})
 
 const blogFolderPath = path.join(process.cwd(), 'blogs');
 const ids = fs.readdirSync(blogFolderPath)
@@ -33,36 +39,48 @@ function highlight(html) {
 
 async function  getBlogData(id) {
   const blogPath = getBlogPath(id);
-    const fileContents = fs.readFileSync(blogPath, 'utf8');
+  const fileContents = fs.readFileSync(blogPath, 'utf8');
 
-    const matterResult = matter(fileContents);
-    
+  const matterResult = matter(fileContents);
+  
 
-    const content = matterResult.content;
+  const content = matterResult.content;
 
-    const contentURI_Update = replaceBlogImageURI(content);
+  const contentURI_Update = replaceBlogImageURI(content);
 
-    const processedContent = await remark()
-      .use(html)
-      .process(contentURI_Update);
-    const contentHtml = processedContent.toString();
+  const processedContent = await remark()
+    .use(html)
+    .process(contentURI_Update);
+  const contentHtml = processedContent.toString();
 
-    const highlightedHTML = highlight(contentHtml)
+  const highlightedHTML = highlight(contentHtml)
 
-    const data = matterResult.data;
-    return {
-      highlightedHTML,
-      ...data
-    };
+  const data = matterResult.data;
+  return {
+    highlightedHTML,
+    ...data
+  };
 }
+
+
 
 export default async function Blog({ params }) {
   const data = await getBlogData(params.id);
   return (
-    <article className={styles.blog}>
-      <time dateTime={data.datetime}>{data.datetime}</time>
+    <>
+    <header><Navbar /></header>
+    <main className={styles.main}>
+      <article className={`${styles.blog} ${font.className}`}>
+      <div className={styles.datetime}>
+        <time dateTime={data.datetime}>
+          {getFormatTimeString(data.datetime)}
+        </time>
+      </div>
       <div className={styles.content} dangerouslySetInnerHTML={{ __html: data.highlightedHTML }} />
-    </article>
+      </article>
+    </main>
+    <Footer />
+    </>
   )
 }
 

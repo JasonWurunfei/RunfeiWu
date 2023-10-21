@@ -1,3 +1,44 @@
+.main {
+  background-image: url('/images/background/triangle-mosaic.png');
+  background-repeat: repeat; /* Make the background image repeat */
+  height: 88vh;
+}
+
+.blog {
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content h1,
+.content h2,
+.content h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.content h4,
+.content h5,
+.content pre,
+.content img,
+.content p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.content h1 {
+  font-size: xxx-large;
+  place-self: center;
+}
+
+.content h2 {
+  font-size: xx-large;
+}
 
 .content pre {
   color: #abb2bf;
@@ -6,6 +47,31 @@
   text-wrap: wrap;
 }
 
+.content a {
+  color: rgba(64, 37, 180, 0.717);
+}
+
 .content div.code {
   white-space: pre;
+}
+
+.datetime {
+  color: rgba(57, 57, 65, 0.562);
+}
+
+.content p>code {
+  background-color: rgb(187, 207, 232);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Styles for screens larger than 1024px (desktops and larger) */
+@media screen and (min-width: 1400px) {
+  /* Styles for desktop and larger screens */
+  .blog {
+    width: 70%;
+  }
+  .content p:has(> img) {
+    text-align: center;
+  }
 }

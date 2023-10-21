@@ -1,10 +1,11 @@
 ---
 title: Unity + Fmod
-datetime: 2023-10-18T11:00:00.000CEST
+datetime: 2023-10-18T11:00:00.000+02:00
+tags: [Unity, Fmod]
 ---
 # Unity + Fmod
 
-Notes from the video [How to make an Audio System in Unity | Unity + FMOD Tutorial]([How to make an Audio System in Unity | Unity + FMOD Tutorial - YouTube](https://www.youtube.com/watch?v=rcBHIOjZDpk)).
+Notes from the video [How to make an Audio System in Unity | Unity + FMOD Tutorial - YouTube](https://www.youtube.com/watch?v=rcBHIOjZDpk).
 
 Fmod in game is almost an industry standard for **adaptative audio**.
 
@@ -30,7 +31,7 @@ It is free to use for noncommercial or indie games. If the revenue exceed curtai
 
    -  The event can be parameterized (for example: rain_intensity=0.2 or thunder_frequency=0.6). These  parameters can be changed.
 
-     ![parameters ](images/Unity_Fmod/parameters .png)
+![parameters](images/Unity_Fmod/parameters.png)
 
 4. **Bank** is a collection of a set of events with similar types. It also give control of which bank of events get loaded to the memory at any given time.
 

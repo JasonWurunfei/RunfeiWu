@@ -1,6 +1,7 @@
 ---
 title: Unity Input System
-datetime: 2023-10-09T22:46:00.000CEST
+datetime: 2023-10-09T22:46:00.000+02:00
+tags: [Unity, Input System]
 ---
 # Unity Input System
 There are 4 types of workflow to use the new input system:
