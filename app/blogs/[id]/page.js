@@ -32,7 +32,9 @@ function highlight(html) {
   const highlightedHTML = html.replace(/<pre><code class="language-(.*)">((.|\n|\s)*?)<\/code><\/pre>/gm,
    (_, p1, p2) => {
     const code = hljs.highlight(p2, {language: p1}).value
-    return `<pre><code class="language-${p1}">${code}</code></pre>`;
+    const codefix = code.replace("&amp;#x3C;", "&lt;") // fix highlight.js bug
+                        .replace(/&amp;<span class="hljs-meta">#x3C;(.*)&gt;(.*)<\/span>/g, "&lt;$1&gt;$2"); 
+    return `<pre><code class="language-${p1}">${codefix}</code></pre>`;
    })
   return highlightedHTML;
 }
