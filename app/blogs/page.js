@@ -9,8 +9,8 @@ import { getFormatTimeString } from '@/app/lib/time';
 
 const blogFolderPath = path.join(process.cwd(), 'blogs');
 const ids = fs.readdirSync(blogFolderPath)
-                    .filter(fileName => fileName != 'images')
-                    .map(fileName => fileName.replace(/\.md$/, ''));
+              .filter(fileName => fileName != 'images')
+              .map(fileName => fileName.replace(/\.md$/, ''));
 
 
 export default function Blogs() {
@@ -30,11 +30,11 @@ export default function Blogs() {
                   {getFormatTimeString(meta.datetime)}
                 </time>
               </div>
-              <ui className={styles.tags}>
+              <ul className={styles.tags}>
                 {meta.tags.map(tag => (
                   <li key={tag} className={styles.tag}>{tag}</li>
                 ))}
-              </ui>
+              </ul>
             </div>
           </Link>
           

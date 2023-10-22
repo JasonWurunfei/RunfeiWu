@@ -8,9 +8,10 @@ const zmx_font = localFont({
   weight: '400'
 });
 
-export default function Navbar() {
+export default function Navbar({mode}) {
+  var modeClass = mode === "light" ? styles.light : styles.dark;
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${modeClass}`}>
       <div className={`${styles.logo} ${zmx_font.className}`}><Link href="/">吴润飞</Link></div>
       <ul className={styles.links}>
         <li className={styles.link}><Link href="/about">About</Link></li>
