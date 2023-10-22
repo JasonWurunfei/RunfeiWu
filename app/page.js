@@ -1,7 +1,7 @@
 import Navbar from '@/app/components/Navbar'
 import Footer from '@/app/components/Footer'
 import styles from './Home.module.css'
-import Link from 'next/link';
+
 
 export default function Home() {
   var mode = "light";
@@ -13,7 +13,7 @@ export default function Home() {
       <img src="/images/photo/landing.jpg" alt="landing" />
       <div className={styles.landingMask}></div>
       <div className={styles.landingText}>
-      <h1>Welcome to Jason Runfei Wu's Cyberspace</h1>
+      <h1>Welcome to Jason Runfei Wu&apos;s Cyberspace</h1>
       {/* <p>Hi, I am Jason Runfei Wu, a student at the University of Copenhagen. I am currently studying Computer Science. I am interested in software development, Machine Learning, Computer Simulations, and Computational Geometry.</p> */}
       </div>
       
