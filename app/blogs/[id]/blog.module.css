@@ -65,13 +65,15 @@
   border-radius: 0.25rem;
 }
 
+.content p:has(> img) {
+  text-align: center;
+  width: 100%;
+}
+
 /* Styles for screens larger than 1024px (desktops and larger) */
 @media screen and (min-width: 1400px) {
   /* Styles for desktop and larger screens */
   .blog {
     width: 70%;
-  }
-  .content p:has(> img) {
-    text-align: center;
   }
 }
