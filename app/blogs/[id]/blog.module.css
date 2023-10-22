@@ -45,7 +45,8 @@
   color: #abb2bf;
   background: #282c34;
   padding: 1rem;
-  text-wrap: wrap;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .content a {
