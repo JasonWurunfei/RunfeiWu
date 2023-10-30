@@ -1,6 +1,6 @@
 ---
 title: Leetcode 2515. Shortest Distance to Target String in a Circular Array
-datetime: 2023-10-028T19:52:00.000+02:00
+datetime: 2023-10-28T19:52:00.000+02:00
 tags: [Leetcode, Array, String]
 ---
 # Leetcode: 2515. Shortest Distance to Target String in a Circular Array
@@ -48,20 +48,20 @@ words[i] and target consist of only lowercase English letters.
 
 
 
-# Intuition
+## Intuition
 Since the distance works in two different directions, we should start from both. There is a limit to how big the distance can be which is `n // 2`.
 
-# Approach
+## Approach
 Using double stepping pointers to compare the current string with the target string. The definition of the next and previous index is very useful for finding next index for `i` and `j`.
 
-# Complexity
+## Complexity
 - Time complexity:
 O(n)
 
 - Space complexity:
 O(n)
 
-# Code
+## Code
 ```python
 class Solution:
     def closetTarget(self, words: List[str], target: str, startIndex: int) -> int:
