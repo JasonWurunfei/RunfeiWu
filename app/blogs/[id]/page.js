@@ -1,9 +1,13 @@
 import fs from 'fs'
 import path from 'path';
-import { remark } from 'remark';
-import html from 'remark-html';
 import matter from 'gray-matter';
-import hljs from 'highlight.js';
+import rehypeMathjax from 'rehype-mathjax'
+import rehypeStringify from 'rehype-stringify'
+import remarkMath from 'remark-math'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeHighlight from 'rehype-highlight'
+import {unified} from 'unified'
 import styles from './blog.module.css'
 import 'highlight.js/styles/atom-one-dark.css';
 import { Lato } from 'next/font/google'
@@ -27,44 +31,27 @@ function replaceBlogImageURI(mdContent) {
   return mdContent.replace(pattern, "![$1](\/images/blogs/$2)")
 }
 
-function highlight(html) {
-  //console.log(html)
-  const highlightedHTML = html.replace(/<pre><code class="language-(.*)">((.|\n|\s)*?)<\/code><\/pre>/gm,
-   (_, p1, p2) => {
-    const code = hljs.highlight(p2, {language: p1}).value
-    const codefix = code.replace("&amp;#x3C;", "&lt;") // fix highlight.js bug
-                        .replace(/&amp;<span class="hljs-meta">#x3C;(.*)&gt;(.*)<\/span>/g, "&lt;$1&gt;$2"); 
-    return `<pre><code class="language-${p1}">${codefix}</code></pre>`;
-   })
-  return highlightedHTML;
-}
 
-async function  getBlogData(id) {
+async function getBlogData(id) {
   const blogPath = getBlogPath(id);
-  const fileContents = fs.readFileSync(blogPath, 'utf8');
+  const md = fs.readFileSync(blogPath, 'utf8');
 
-  const matterResult = matter(fileContents);
-  
+  const {data, content} = matter(md);
 
-  const content = matterResult.content;
+  const file = await unified()
+    .use(remarkParse)
+    .use(remarkMath)
+    .use(remarkRehype)
+    .use(rehypeHighlight)
+    .use(rehypeMathjax)
+    .use(rehypeStringify)
+    .process(replaceBlogImageURI(content));
 
-  const contentURI_Update = replaceBlogImageURI(content);
-
-  const processedContent = await remark()
-    .use(html)
-    .process(contentURI_Update);
-  const contentHtml = processedContent.toString();
-
-  const highlightedHTML = highlight(contentHtml)
-
-  const data = matterResult.data;
   return {
-    highlightedHTML,
+    highlightedHTML: String(file),
     ...data
   };
 }
-
-
 
 export default async function Blog({ params }) {
   const data = await getBlogData(params.id);
