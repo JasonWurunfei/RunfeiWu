@@ -1,7 +1,7 @@
 ---
 title: How to make a blog site with math equations, markdown, and code highlight support in Next.js
 datetime: 2023-12-07T11:33:00.000+01:00
-tags: [blog, math, markdown, code, highlight, Next.js, remark, rehyp, mathjax, highlight.js]
+tags: [blog, math, markdown, code highlight, Next.js, remark, rehyp, mathjax, highlight.js]
 ---
 
 # How to make a blog site with math equations, markdown, and code highlight support in Next.js
