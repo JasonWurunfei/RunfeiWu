@@ -48,7 +48,7 @@ async function getBlogData(id) {
     .process(replaceBlogImageURI(content));
 
   return {
-    highlightedHTML: String(file),
+    HTML: String(file),
     ...data
   };
 }
@@ -65,7 +65,10 @@ export default async function Blog({ params }) {
           {getFormatTimeString(data.datetime)}
         </time>
       </div>
-      <div className={styles.content} dangerouslySetInnerHTML={{ __html: data.highlightedHTML }} />
+      <div 
+        className={styles.content} 
+        dangerouslySetInnerHTML={{ __html: data.HTML }} 
+      />
       </article>
     </main>
     <Footer />
