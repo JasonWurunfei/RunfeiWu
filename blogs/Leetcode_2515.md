@@ -2,6 +2,7 @@
 title: Leetcode 2515. Shortest Distance to Target String in a Circular Array
 datetime: 2023-10-28T19:52:00.000+02:00
 tags: [Leetcode, Array, String]
+collection: [Leetcode]
 ---
 # Leetcode: 2515. Shortest Distance to Target String in a Circular Array
 You are given a 0-indexed circular string array words and a string target. A circular array means that the array's end connects to the array's beginning.

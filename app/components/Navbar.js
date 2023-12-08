@@ -1,6 +1,5 @@
-import Link from 'next/link'
-import styles from './Navbar.module.css'
-import { Zhi_Mang_Xing } from 'next/font/google'
+import Link from 'next/link';
+import styles from './Navbar.module.css';
 
 import localFont from 'next/font/local'
 const zmx_font = localFont({ 
@@ -15,7 +14,7 @@ export default function Navbar({mode}) {
       <div className={`${styles.logo} ${zmx_font.className}`}><Link href="/">吴润飞</Link></div>
       <ul className={styles.links}>
         <li className={styles.link}><Link href="/about">About</Link></li>
-        <li className={styles.link}><Link href="/blogs">Blogs</Link></li>
+        <li className={styles.link}><Link href="/blogs/collections">Blogs</Link></li>
         <li className={styles.link}><Link href="/CV.pdf">CV</Link></li>
       </ul>
     </nav>

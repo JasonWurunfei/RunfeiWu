@@ -2,6 +2,7 @@
 title: Schur Complement Trick
 datetime: 2023-11-05T18:29:00.000+02:00
 tags: [Math, Linear Algebra]
+collection: [Math, Simulation]
 ---
 # Simplifying Multibody Dynamics with the Schur Complement "Trick"
 Multibody dynamics simulations are a cornerstone in the fields of robotics, biomechanics, and aerospace engineering. These simulations often involve complex models that must account for various interactions and constraints, such as contacts and collisions. One of the fundamental challenges in simulating such systems is solving large sets of differential equations that describe the motion of each body while satisfying these constraints. This often leads to a computationally intensive task, particularly when dealing with systems that have a large number of degrees of freedom.

@@ -76,6 +76,6 @@ export default async function Blog({ params }) {
   )
 }
 
-export  function generateStaticParams() {
+export function generateStaticParams() {
   return ids.map( id => ({id}));
 }

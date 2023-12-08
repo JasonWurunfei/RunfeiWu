@@ -2,6 +2,7 @@
 title: Procedural Terrain Generation
 datetime: 2023-10-09T22:46:00.000+02:00
 tags: [Unity, Procedural Generation]
+collection: [Game Development]
 ---
 # Procedural Terrain Generation
 

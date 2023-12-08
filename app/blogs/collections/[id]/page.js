@@ -1,20 +1,30 @@
 import Link from 'next/link';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
-import styles from './blogs.module.css';
-import { getBlogMetaDataList, IDs } from '@/app/lib/blog';
+import styles from './collection.module.css';
 import { getFormatTimeString } from '@/app/lib/time';
+import {
+  getBlogIDsByCollection,
+  getBlogMetaDataListByCollection,
+  getAllCollectionIds
+} from '@/app/lib/blog';
 
-export default function Blogs() {
-  const BlogMetas = getBlogMetaDataList();
+// the space in the id is escaped to '_' in the url
+const escaped_ids = getAllCollectionIds(); 
+
+export default async function Blog({ params }) {
+  const id = params.id.replace('_', ' ');
+  const BlogMetas = getBlogMetaDataListByCollection(id);
+  const blog_ids = getBlogIDsByCollection(id);
   return (
     <>
     <header><Navbar /></header>
     <main className={styles.main}>
+      <h1>{id}</h1>
       <ul className={styles.cards}>
       {BlogMetas.map((meta, idx) => (
         <li key={meta.title}>
-          <Link href={`/blogs/${IDs[idx]}`}>
+          <Link href={`/blogs/${blog_ids[idx]}`}>
             <div className={styles.card}>
               <h2>{meta.title}</h2>
               <div className={styles.datetime}>
@@ -35,5 +45,9 @@ export default function Blogs() {
     </main>
     <Footer />
     </>
-  );
+  )
+}
+
+export function generateStaticParams() {
+  return escaped_ids.map(id => ({id}));
 }

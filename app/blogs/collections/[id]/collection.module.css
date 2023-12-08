@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url('/images/background/triangle-mosaic.png');
+  background-repeat: repeat; /* Make the background image repeat */
+}
+
+.card {
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-image: url('/images/background/email-pattern.png');
+  background-size: cover; /* Adjust as needed */;
+  /* Add a simple box shadow */
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s; /* Add a transition on the transform property for a smooth effect */
+}
+
+.card:hover {
+  transform: scale(1.1); /* Scale the card by 10% on hover */
+}
+
+.datetime {
+  color: rgba(57, 57, 65, 0.562);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  margin-top: 0.2rem;
+  margin-right: 0.5rem;
+  padding: 0.2rem;
+  background-color: rgba(126, 126, 189, 0.562);
+  border-radius: 0.5rem;
+  color: white;
+}
+
+@media screen and (min-width: 1400px) {
+  .cards {
+    width: 55%;
+  }
+}
