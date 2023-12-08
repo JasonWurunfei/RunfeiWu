@@ -37,7 +37,6 @@ export default function Blogs() {
               </ul>
             </div>
           </Link>
-          
         </li>
       ))}
       </ul>
