@@ -3,9 +3,14 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const blogFolderPath = path.join(process.cwd(), 'blogs');
-const ids = fs.readdirSync(blogFolderPath)
-                    .filter(fileName => fileName != 'images')
-                    .map(fileName => fileName.replace(/\.md$/, ''));
+
+function getBlogIDs() {
+  return fs.readdirSync(blogFolderPath)
+           .filter(fileName => fileName != 'images')
+           .map(fileName => fileName.replace(/\.md$/, ''));
+}
+
+export const ids = getBlogIDs();
 
 function getBlogPath(id) {
   return path.join(blogFolderPath, `${id}.md`);

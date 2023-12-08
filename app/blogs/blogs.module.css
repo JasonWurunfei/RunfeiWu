@@ -37,6 +37,7 @@
 }
 
 .tag {
+  margin-top: 0.2rem;
   margin-right: 0.5rem;
   padding: 0.2rem;
   background-color: rgba(126, 126, 189, 0.562);
