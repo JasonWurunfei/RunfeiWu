@@ -2,7 +2,7 @@
 title: Docker Desktop - Unexpected WSL error
 datetime: 2023-10-16T15:07:00.000+02:00
 tags: [Docker, WSL]
-collection: [Docker]
+collection: [Dev Tools]
 ---
 # Docker Desktop - Unexpected WSL error
 
