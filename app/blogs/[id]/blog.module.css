@@ -59,6 +59,8 @@
   padding: 1rem;
   white-space: pre-wrap;
   word-break: break-word;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
 .content a {

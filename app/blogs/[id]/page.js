@@ -9,7 +9,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
 import {unified} from 'unified'
 import styles from './blog.module.css'
-import 'highlight.js/styles/atom-one-dark.css';
+import 'highlight.js/styles/atom-one-dark.css'
 import { Lato } from 'next/font/google'
 import Navbar from '@/app/components/Navbar'
 import Footer from '@/app/components/Footer'
