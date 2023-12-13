@@ -176,12 +176,20 @@ You will see the heading rendered correctly as follows:
 
 If you have Markdown blockquote like this in your markdown file:
 
+    > some quote
+
+or
+
     > Blockquotes can also be nested...
     >> ...by using additional greater-than signs right next to each other...
     > > > ...or with spaces between arrows.
 
 
 You will see the blockquote rendered correctly as follows:
+
+> some quote
+
+and
 
 > Blockquotes can also be nested...
 > > ...by using additional greater-than signs right next to each other...
