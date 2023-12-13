@@ -36,11 +36,14 @@ These CPUs have different naming conventions. Intel uses i3, i5, i7, i9 to name 
 For example, i9-10900K is an Intel CPU. i9 means it is the top of the line CPU. The first 2 digits of 10900 means it is the 10th generation of the i9 series. For the last 3 digits of 10xxx, the bigger the number, the better the performance. K means it is unlocked, which means it can be overclocked. Here is a list of letters that Intel uses to name their CPUs.
 
 <table>
+    <thead>
     <tr>
         <th>Form/Function Type/Segment</th>
         <th>Suffix</th>
         <th>Optimized/Designed For</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td rowspan="5">Desktop</td>
         <td>K</td>
@@ -112,6 +115,7 @@ For example, i9-10900K is an Intel CPU. i9 means it is the top of the line CPU. 
         <td>HL</td>
         <td>High performance, in LGA package</td>
     </tr>
+    </tbody>
 </table>
 
 ![AMD CPU Naming Scheme](images/Build_My_First_PC/amd_cpu_naming.png)
@@ -119,7 +123,7 @@ For example, i9-10900K is an Intel CPU. i9 means it is the top of the line CPU. 
 AMD's naming convention is similar. For example, Ryzen 9 5700G is an AMD CPU. Ryzen 9 means it is the top of the line CPU. The first digit of 5700 means it is the 5th generation of the Ryzen 9 series. For the last 3 digits of 5xxx, the bigger the number, the better the performance. G means it has integrated graphics. Here is a list of letters that AMD uses to name their CPUs.
 
 | Letter | Meaning |
-| --- | --- |
+| :-: | :-: |
 | G | Integrated graphics |
 | X | High performance |
 | T | higher clock speeds |

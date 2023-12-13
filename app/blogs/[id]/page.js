@@ -1,18 +1,20 @@
-import fs from 'fs'
+import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import rehypeMathjax from 'rehype-mathjax'
-import rehypeStringify from 'rehype-stringify'
-import remarkMath from 'remark-math'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import rehypeHighlight from 'rehype-highlight'
-import {unified} from 'unified'
-import styles from './blog.module.css'
-import 'highlight.js/styles/atom-one-dark.css'
-import { Lato } from 'next/font/google'
-import Navbar from '@/app/components/Navbar'
-import Footer from '@/app/components/Footer'
+import rehypeMathjax from 'rehype-mathjax';
+import rehypeStringify from 'rehype-stringify';
+import remarkMath from 'remark-math';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import {unified} from 'unified';
+import styles from './blog.module.css';
+import 'highlight.js/styles/atom-one-dark.css';
+import { Lato } from 'next/font/google';
+import Navbar from '@/app/components/Navbar';
+import Footer from '@/app/components/Footer';
 import { getFormatTimeString } from '@/app/lib/time';
 
 const font = Lato({ subsets: ['latin'], weight: ['300', '400', '700']})
@@ -40,8 +42,10 @@ async function getBlogData(id) {
 
   const file = await unified()
     .use(remarkParse)
+    .use(remarkGfm)
     .use(remarkMath)
-    .use(remarkRehype)
+    .use(remarkRehype, {allowDangerousHtml: true})
+    .use(rehypeRaw)
     .use(rehypeHighlight)
     .use(rehypeMathjax)
     .use(rehypeStringify)
