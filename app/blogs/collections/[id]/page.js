@@ -4,7 +4,6 @@ import Footer from '@/app/components/Footer';
 import styles from './collection.module.css';
 import { getFormatTimeString } from '@/app/lib/time';
 import {
-  getBlogIDsByCollection,
   getBlogMetaDataListByCollection,
   getAllCollectionIds
 } from '@/app/lib/blog';
@@ -15,16 +14,15 @@ const escaped_ids = getAllCollectionIds();
 export default async function Blog({ params }) {
   const id = params.id.replace('_', ' ');
   const BlogMetas = getBlogMetaDataListByCollection(id);
-  const blog_ids = getBlogIDsByCollection(id);
   return (
     <>
     <header><Navbar /></header>
     <main className={styles.main}>
       <h1>{id}</h1>
       <ul className={styles.cards}>
-      {BlogMetas.map((meta, idx) => (
+      {BlogMetas.map(meta => (
         <li key={meta.title}>
-          <Link href={`/blogs/${blog_ids[idx]}`}>
+          <Link href={`/blogs/${meta.id}`}>
             <div className={styles.card}>
               <h2>{meta.title}</h2>
               <div className={styles.datetime}>

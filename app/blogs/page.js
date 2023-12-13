@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 import styles from './blogs.module.css';
-import { getBlogMetaDataList, IDs } from '@/app/lib/blog';
+import { getBlogMetaDataList } from '@/app/lib/blog';
 import { getFormatTimeString } from '@/app/lib/time';
 
 export default function Blogs() {
@@ -12,9 +12,9 @@ export default function Blogs() {
     <header><Navbar /></header>
     <main className={styles.main}>
       <ul className={styles.cards}>
-      {BlogMetas.map((meta, idx) => (
+      {BlogMetas.map(meta => (
         <li key={meta.title}>
-          <Link href={`/blogs/${IDs[idx]}`}>
+          <Link href={`/blogs/${meta.id}`}>
             <div className={styles.card}>
               <h2>{meta.title}</h2>
               <div className={styles.datetime}>

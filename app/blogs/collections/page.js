@@ -21,7 +21,7 @@ export default function Blogs() {
           <Link key={id} href={`/blogs/collections/${id}`}>
             <li className={styles.card}>
               <Image
-                src={`${collection_background_image_URI}${id}.png`}
+                src={`${collection_background_image_URI}/${id}.png`}
                 alt={id}
                 width={270}
                 height={140}
