@@ -30,7 +30,7 @@ function getBlogPath(id) {
 
 function replaceBlogImageURI(mdContent) {
   const pattern = /\!\[(.*)\]\(images\/(.*)\)/g
-  return mdContent.replace(pattern, "![$1](\/images/blogs/$2)")
+  return mdContent.replace(pattern, "![$1](/images/blogs/$2)")
 }
 
 

@@ -55,7 +55,7 @@ import 'highlight.js/styles/atom-one-dark.css'; // or any other theme you like
 
 function replaceBlogImageURI(mdContent) {
   const pattern = /\!\[(.*)\]\(images\/(.*)\)/g
-  return mdContent.replace(pattern, "![$1](\/images/blogs/$2)")
+  return mdContent.replace(pattern, "![$1](/images/blogs/$2)")
 }
 
 async function getBlogData(id) {
@@ -102,7 +102,17 @@ async function getBlogData(id) {
 }
 ```
 
-The `replaceBlogImageURI` function is just a helper function to replace the image URI in the markdown file. You can ignore it if you don't need it. `allowDangerousHtml` is set to true because it is required by the `rehypeRaw` plugin to parse the raw HTML in the markdown file. 
+The `replaceBlogImageURI` function is just a helper function to replace the image URI in the markdown file. The `pattern` variable is a regular expression that matches the image URI in the markdown file. You may store your images in a different folder other than the `images` folder right next to the markdown file. If that is the case, you need to change the regular expression to match the image URI in your markdown file. For example, if you store your images in the `path/to/images` folder, you need to change the regular expression to match the image URI in your markdown file like this:
+
+    const pattern = /\!\[(.*)\]\(path\/to\/images\/(.*)\)/g
+
+And the second argument of the `replace` function is the replacement string. You need to change it to the `public` folder if you also use Next.js. For example, if you store your images in the `public/images` folder, you need to change the replacement string like this:
+
+    return mdContent.replace(pattern, "![$1](/images/$2)")
+
+Note that the URI is relative to the `public` folder so you don't need to include the `public` folder in the URI. Make sure you have the URI set correctly. Otherwise, the images will not be served correctly. However, if you have better ways to do this, please just ignore this function.
+
+`allowDangerousHtml` is set to true because it is required by the `rehypeRaw` plugin to parse the raw HTML in the markdown file. 
 
 There you have it. It is that simple. You can now use the `getBlogData` function to get the blog data. If your frontmatter looks something like this:
 
@@ -121,7 +131,7 @@ The `getBlogData` function will return an object with the following properties:
 
 And you can use the data to render the blog content just like the one you are reading right now.
 
-So now if you have Markdown list like this in your markdown file:
+If you have Markdown list like this in your markdown file:
 
     - Item 1
     - Item 2
@@ -145,6 +155,65 @@ You will see the list rendered correctly as follows:
 1. Item 1
 2. Item 2
 3. Item 3
+
+If you have Markdown heading like this in your markdown file:
+
+    # Heading 1
+    ## Heading 2
+    ### Heading 3
+    #### Heading 4
+    ##### Heading 5
+    ###### Heading 6
+
+You will see the heading rendered correctly as follows:
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+If you have Markdown blockquote like this in your markdown file:
+
+    > Blockquotes can also be nested...
+    >> ...by using additional greater-than signs right next to each other...
+    > > > ...or with spaces between arrows.
+
+
+You will see the blockquote rendered correctly as follows:
+
+> Blockquotes can also be nested...
+> > ...by using additional greater-than signs right next to each other...
+> > > ...or with spaces between arrows.
+
+If you have Markdown horizontal rule like this in your markdown file:
+
+    ---
+    ***
+    ___
+
+You will see the horizontal rule rendered correctly as follows:
+
+---
+***
+___
+
+If you have Markdown link like this in your markdown file:
+
+    [This is a link](https://www.example.com)
+
+You will see the link rendered correctly as follows:
+
+[This is a link](https://www.example.com)
+
+If you have Markdown image like this in your markdown file:
+
+    ![This is an image](images/How_to_Make_a_Blog_Site_with_Math_equation_markdown_Code_highlight_and_GFM_support/relax_image.png)
+
+You will see the image rendered correctly as follows:
+
+![This is an image](images/How_to_Make_a_Blog_Site_with_Math_equation_markdown_Code_highlight_and_GFM_support/relax_image.png)
 
 If you have latex math expressions like this in your markdown file:
 
