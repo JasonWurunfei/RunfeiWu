@@ -90,7 +90,7 @@ The first step is to find the 8 corners of the cube. The following image shows t
 
 The corners are labeled with the index of the corner. $C_{000}$ and $C_{111}$ are the left bottom front and right top back corners respectively.
 
-## Step 2. Find the 3 ratios
+### Step 2. Find the 3 ratios
 The next step is to find the 3 ratios $x_d$, $y_d$ and $z_d$ which are the distances ratio in x-axis, y-axis and z-axis between $C_{000}$ and $x$, $C_{000}$ and $y$, $C_{000}$ and $z$ respectively. 
 
 $$
