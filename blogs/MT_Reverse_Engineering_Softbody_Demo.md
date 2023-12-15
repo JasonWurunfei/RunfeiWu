@@ -1,5 +1,5 @@
 ---
-title: MT Reverse Engineering Softbody Demo
+title: Reverse Engineering Softbody Demo
 datetime: 2023-12-15T09:57:31.059+01:00
 tags: [Master Thesis, RAINBOW]
 collection: [Simulation]
