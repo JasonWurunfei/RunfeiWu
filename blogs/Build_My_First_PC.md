@@ -172,7 +172,11 @@ Both CPU and GPU will generate a lot of heat when they are running. Most GPUs ha
 The power supply unit (PSU) is the component that supplies power to the other components in a computer. It converts the AC power from the wall outlet into DC power that is used by the computer. It is measured in watts. The higher the better. It is normally installed at the bottom of the case. It has a fan to cool itself. It also has a fan to cool the case.
 
 ### Motherboard
-The motherboard is the main circuit board of a computer. It is also called mainboard or mobo. It is the central communication backbone to coordinate all the components of a computer. 
+The motherboard is the main circuit board of a computer. It is also called mainboard or mobo. It is the central communication backbone to coordinate all the components of a computer. Here is a simple diagram of a motherboard shows the layout of the components of a motherboard and how they are connected to CPU.
+
+![Motherboard Layout](images/Build_My_First_PC/motherboard_layout.png)
+
+The specific PCIe configurations and USB etc, maybe slightly different for different motherboards.
 
 There are three main types of motherboards: ATX, Micro-ATX, and Mini-ITX. ATX is the largest and Mini-ITX is the smallest. The size of the motherboard determines the size of the case. So you need to choose the motherboard first before choosing the case.
 

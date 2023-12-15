@@ -17,6 +17,9 @@
  * Example:
  *  node new_blog.js my_new_blog -i
  * 
+ * Note: The filename should not contain spaces or special characters.
+ *       The -i flag should be the last argument.
+ * 
  * This will create a Markdown file named my_new_blog.md with the frontmatter
  * and an image folder named my_new_blog.
  * 
