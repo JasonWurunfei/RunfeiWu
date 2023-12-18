@@ -7,7 +7,9 @@ collection: [Web Development]
 
 # How to make a blog site with math equations, markdown, code highlight, and GFM (GitHub Flavored Markdown) support in Next.js
 
-I have been looking for a way to make a blog site with math equations, markdown, and code highlight support in Next.js. I found a few solutions, including the ones that requires me to write janky code to make it work. I finally found a solution that is simple and elegant. I am going to share it with you in this post.
+I have been looking for a way to make a blog site with math equations, markdown, and code highlight support in Next.js. I found a few solutions, including the ones that requires me to write janky code to make it work. I finally found a solution that is simple and elegant. I am going to share it with you in this post. 
+
+This blog is also a demosntration of the features I implemented for this blog site. You can check out the source code [here](https://github.com/JasonWurunfei/RunfeiWu).
 
 ## Remark, Rehype, and Unified
 Unified is a tool that allows you to write plugins for parsing and transforming markdown. Remark and Rehype are two plugins that allow you to parse and transform markdown. Remark is for parsing markdown into an abstract syntax tree (AST), and Rehype is for transforming the AST into HTML. You can imagine there is a lot you can do once the document is parsed into an AST. For example, you can add a plugin to transform the AST into HTML that supports math equations and code highlight. Then all you need to do is transform the AST into HTML again using Rehype.
@@ -49,6 +51,7 @@ import remarkRehype from 'remark-rehype';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
 import {unified} from 'unified';
 
 import 'highlight.js/styles/atom-one-dark.css'; // or any other theme you like
@@ -74,6 +77,7 @@ async function getBlogData(id) {
     .use(rehypeHighlight)
     .use(rehypeMathjax)
     .use(rehypeStringify)
+    .use(rehypeSlug) // add this if you want to add id to the heading
     .process(replaceBlogImageURI(content));
 
   return {
@@ -174,6 +178,23 @@ You will see the heading rendered correctly as follows:
 ##### Heading 5
 ###### Heading 6
 
+Bold and italic text are also supported. For example, if you have bold and italic text like this in your markdown file:
+
+    **This is bold text**
+    __This is bold text__
+    *This is italic text*
+    _This is italic text_
+
+You will see the bold and italic text rendered correctly as follows:
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
 If you have Markdown blockquote like this in your markdown file:
 
     > some quote
@@ -214,6 +235,10 @@ If you have Markdown link like this in your markdown file:
 You will see the link rendered correctly as follows:
 
 [This is a link](https://www.example.com)
+
+If you added the `rehypeSlug` plugin, you can add id to the headings. Then In different section of your blog or different blog, you can add a link to some section of your blog as a way to reference it. For example, the following link will force you to read the Implementation section of this blog again :)
+
+[Implementation](#implementation)
 
 If you have Markdown image like this in your markdown file:
 

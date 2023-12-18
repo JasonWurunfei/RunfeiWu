@@ -9,6 +9,7 @@ import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
 import {unified} from 'unified';
 import config from '@/app/config';
 
@@ -136,6 +137,7 @@ export async function parseBlogData(id) {
     .use(rehypeHighlight)
     .use(rehypeMathjax)
     .use(rehypeStringify)
+    .use(rehypeSlug)
     .process(replaceBlogImageURI(content));
 
   return {
