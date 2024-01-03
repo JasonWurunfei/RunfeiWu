@@ -8,7 +8,7 @@ collection: [Hardware]
 As a computer science student, I have been using laptops for years. However, I have never built a PC before. I also need a powerful PC for my master thesis. So I decided to build my first PC. I will document the process here. 
 
 ## Study the basics
-I have tried several times to learn about PC hardware, but I always gave up because I was not fully committed to building a PC. This time, I am fully committed and want to do it right. So I started with the basics. I first started watching this [video](https://www.bilibili.com/video/BV1BG4y137mG/?share_source=copy_web&vd_source=909d7ffd31e6a012de164ae0db755009)
+I have tried several times to learn about PC hardware, but I always gave up because I was not fully committed to building a PC. This time, I am fully committed and want to do it right. So I started with the basics. I first started watching this [video](https://www.bilibili.com/video/BV1BG4y137mG)
 
 Just the desktop itself it has 8 main components:
 - Case
@@ -131,6 +131,17 @@ AMD's naming convention is similar. For example, Ryzen 9 5700G is an AMD CPU. Ry
 | H | High performance mobile |
 | none | desktop processors |
 
+For different CPU, you need different motherboards. All AMD CPU need AMD motherboards. All Intel CPU need Intel motherboards. Different generations of AMD CPU need different AMD motherboards. Different generations of Intel CPU need different Intel motherboards as well. So you need to choose the CPU first before choosing the motherboard.
+
+AMD Ryzen 5000 series and earlier CPUs use M4. AMD Ryzen 7000 series CPUs use M5. 
+
+![AMD CPU and motherboard compatibility](images/Build_My_First_PC/AMD_Motherboard.png)
+
+Intel Gen 10 and 11 uses LGA1200. Intel Gen 12, 13, and 14 uses LGA1700. So you need to make sure the CPU and the motherboard are compatible.
+
+![Intel CPU and motherboard compatibility](images/Build_My_First_PC/Intel_Motherboard.png)
+
+For even older models, you can check this [website](https://www.cpu-upgrade.com/CPUs/).
 
 ### RAM
 The two types of the RAM are DDR4 and DDR5. They require different motherboards. It has 288 pins and it has a notch on the bottom to prevent it from being inserted incorrectly. It uses DIMM (Dual In-line Memory Module) slots on the motherboard. Normally, the motherboard has 2 or 4 DIMM slots. Make sure you install the RAM sticks in the right slots because they have different speeds. The motherboard manual will tell you which slots to use.
@@ -171,6 +182,20 @@ Both CPU and GPU will generate a lot of heat when they are running. Most GPUs ha
 ### Power Supply
 The power supply unit (PSU) is the component that supplies power to the other components in a computer. It converts the AC power from the wall outlet into DC power that is used by the computer. It is measured in watts. The higher the better. It is normally installed at the bottom of the case. It has a fan to cool itself. It also has a fan to cool the case.
 
+It has three types in general:
+- Non-modular: All the cables are attached to the PSU. It is the cheapest but the cables are messy.
+- Semi-modular: Some of the cables are attached to the PSU. It is more expensive but the cables are less messy.
+- Fully-modular: All the cables are not attached to the PSU. It is the most expensive but the cables are the least messy.
+
+![Power Supply](images/Build_My_First_PC/power_supply.png)
+
+#### Cable types
+- 24-pin ATX power connector: It is the main power connector. It is used to power the motherboard. Normally it will have one pin empty. 
+- 4+4-pin EPS power connector: It is used to power the CPU. It is normally located at the top left corner of the motherboard.
+- 6+2-pin PCIe power connector: It is used to power the PCIe sockets.
+- SATA power connector: It is used to power the SATA sockets.
+- Molex power connector: It is used to power lights and fans.
+
 ### Motherboard
 The motherboard is the main circuit board of a computer. It is also called mainboard or mobo. It is the central communication backbone to coordinate all the components of a computer. Here is a simple diagram of a motherboard shows the layout of the components of a motherboard and how they are connected to CPU.
 
@@ -184,15 +209,50 @@ There are three main types of motherboards: ATX, Micro-ATX, and Mini-ITX. ATX is
 
 There is a thing called QVL (Qualified Vendor List). It is a list of all the RAM sticks that are compatible with the motherboard. You can find it on the motherboard manufacturer's website. You can also find it in the motherboard manual. However, almost all the memory sticks are compatible with the motherboard. So you do not need to worry about it unless you want to make sure.
 
+It is also very important to see how many CPU powering units the motherboard has. The CPU powering unit is called VRM (Voltage Regulator Module). It is used to convert the 12V power from the PSU to the 1.2V power that the CPU needs. The more the better. The CPU will consume more power when it is overclocked. So you need more VRMs to power the CPU when it is overclocked.
+
 ### Case
-The case is the enclosure that holds all the components of a computer. It is also called chassis. 
+The case is the enclosure that holds all the components of a computer. It is also called chassis.
 
 ### Tools
 If you do not have a M.2 SSD, you will need a screwdriver to install the SSD. Otherwize, you need a smaller screwdriver to install the M.2 SSD. You also need a pair of scissors to open the boxes.
 
 
 ## Install the components
-Check this [video](https://www.bilibili.com/video/BV1BG4y137mG/?share_source=copy_web&vd_source=909d7ffd31e6a012de164ae0db755009). It is in Chinese, but you can just watch it without sound. It is very detailed and easy to follow. 
+Check this [video](https://www.bilibili.com/video/BV1BG4y137mG). It is in Chinese, but you can just watch it without sound. It is very detailed and easy to follow. 
+
+When Installing the fans, make sure you put the fan in the correct direction. The fan should blow air into the case. The airflow direction is like this:
+
+![Fan Air flow direction](images/Build_My_First_PC/Case-Fan-Airflow-Direction.webp)
+
+The case airflow should look like this:
+
+![Case Airflow](images/Build_My_First_PC/airflow.png)
+
+Blue is in take (cold air) and red (heated air) is exhaust.
+
+### Installation order
+1. Install the CPU
+2. Install the RAM
+3. Install the M.2 SSD
+4. Install the CPU cooler (skip if you have a liquid cooler)
+5. Install the motherboard
+6. Install the liquid cooler (skip if you have an air cooler)
+7. Install the fan cables
+   
+   ![Fan cables](images/Build_My_First_PC/fan_cables.png)
+
+   ![Fan cables](images/Build_My_First_PC/fan_cables2.png)
+   
+8. Install SATA hard drives and chassis fans
+9.  Install the power supply and connect the cables
+10. Install the GPU
+
+After installing all the components, you can connect the power cable and turn on the PC. If everything is done correctly, you should see the BIOS screen. If you do not see the BIOS screen, you can use the debug LED on the motherboard to find the problem. You can also check the motherboard manual to see what the debug LED means. Here is a quick guide to the debug LED.
+
+![Debug LED](images/Build_My_First_PC/debug.png)
+
+
 
 ## Choose the parts (The dream PC setup)
 - GPU: RTX 4060 Ti (4000 kr)
