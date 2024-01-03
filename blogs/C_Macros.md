@@ -334,3 +334,116 @@ Number: 41
 Number: 67
 Min: 41
 ```
+
+
+## Use cases
+### Logging
+
+```C
+#include <stdio.h>
+#include <time.h>
+
+// Define a macro for logging with timestamp, file name, and line number
+#define LOG(message, ...) \
+    do { \
+        time_t t = time(NULL); \
+        struct tm *tm = localtime(&t); \
+        char time_str[64]; \
+        strftime(time_str, sizeof(time_str), "%Y-%m-%d %H:%M:%S", tm); \
+        fprintf(stderr, "[%s] (%s:%d) " message "\n", time_str, __FILE__, __LINE__, ##__VA_ARGS__); \
+    } while(0)
+
+int main() {
+    // Example usage of the LOG macro
+    LOG("This is a log message.");
+    LOG("This is a log message with a number: %d", 42);
+
+    return 0;
+}
+```
+
+Notice the `do { ... } while(0)` block. This is to make sure the macro is always a single statement. This is to avoid problems when using the macro in an if statement like this:
+```C
+if (condition)
+    LOG("This is a log message.");
+else
+    something_else();
+```
+If we don't use the `do { ... } while(0)` block, the else part might not associate with the if as intended. This can lead to subtle bugs. It is also allowing use of semicolon after the macro like this:
+```C
+LOG("This is a log message.");
+```
+It allows the use of a semicolon in a natural way, without altering the control flow.
+
+
+### Generic Programming - Generic Swap
+```C
+#include <stdio.h>
+
+#define SWAP(X, Y) \
+    do { \
+        typeof(X) temp = X; \
+        X = Y; \
+        Y = temp; \
+    } while(0)
+
+int main() {
+    int a = 5;
+    int b = 6;
+    printf("a = %d, b = %d\n", a, b);
+    SWAP(a, b);
+    printf("a = %d, b = %d\n", a, b);
+    return 0;
+}
+```
+
+### Generic Programming - Generic Vector
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+
+// Macro for declaring a new vector type
+#define DECLARE_VECTOR(type, vectorName)  \
+typedef struct {                          \
+    type* data;                           \
+    size_t size;                          \
+    size_t capacity;                      \
+} vectorName;
+
+// Macro for initializing a vector
+#define VECTOR_INIT(vec)          \
+do {                              \
+    (vec).data = NULL;            \
+    (vec).size = 0;               \
+    (vec).capacity = 0;           \
+} while (0)
+
+// Macro for adding an element to a vector
+#define VECTOR_PUSH_BACK(vec, item)                           \
+do {                                                          \
+    if ((vec).size == (vec).capacity) {                       \
+        (vec).capacity = (vec).capacity ? (vec).capacity * 2 : 1; \
+        (vec).data = realloc((vec).data, (vec).capacity * sizeof(*(vec).data)); \
+    }                                                         \
+    (vec).data[(vec).size++] = (item);                        \
+} while (0)
+
+// Example usage of these macros
+DECLARE_VECTOR(int, IntVector)
+
+int main() {
+    IntVector myVec;
+    VECTOR_INIT(myVec);
+
+    VECTOR_PUSH_BACK(myVec, 10);
+    VECTOR_PUSH_BACK(myVec, 20);
+
+    for (size_t i = 0; i < myVec.size; ++i) {
+        printf("%d\n", myVec.data[i]);
+    }
+
+    free(myVec.data);
+    return 0;
+}
+```
