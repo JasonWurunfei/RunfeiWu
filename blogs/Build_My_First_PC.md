@@ -211,6 +211,8 @@ There is a thing called QVL (Qualified Vendor List). It is a list of all the RAM
 
 It is also very important to see how many CPU powering units the motherboard has. The CPU powering unit is called VRM (Voltage Regulator Module). It is used to convert the 12V power from the PSU to the 1.2V power that the CPU needs. The more the better. The CPU will consume more power when it is overclocked. So you need more VRMs to power the CPU when it is overclocked.
 
+The main brands of motherboards are ASUS (华硕), MSI（微星, Gigabyte (技嘉).
+
 ### Case
 The case is the enclosure that holds all the components of a computer. It is also called chassis.
 
@@ -243,7 +245,7 @@ Blue is in take (cold air) and red (heated air) is exhaust.
    ![Fan cables](images/Build_My_First_PC/fan_cables.png)
 
    ![Fan cables](images/Build_My_First_PC/fan_cables2.png)
-   
+
 8. Install SATA hard drives and chassis fans
 9.  Install the power supply and connect the cables
 10. Install the GPU
