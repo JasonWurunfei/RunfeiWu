@@ -88,7 +88,7 @@ you will get this
 
 output:
 ```
-PRODUCT(a + 1, b) = 11
+PRODUCT(a, b) = 11
 ```
 
 This is because the preprocessor will replace the macros with their values. So the code above will be replaced with this:
