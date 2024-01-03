@@ -1,5 +1,5 @@
 ---
-title: C_Macros
+title: C Macros
 datetime: 2024-01-02T20:20:28.602+01:00
 tags: [C, Programming Language, Macros]
 collection: [Programming]
