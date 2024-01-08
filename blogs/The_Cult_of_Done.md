@@ -1,5 +1,5 @@
 ---
-title: The_Cult_of_Done
+title: The Cult of Done
 datetime: 2024-01-08T21:09:33.724+01:00
 tags: [Productivity, Realization]
 collection: [Realization]
