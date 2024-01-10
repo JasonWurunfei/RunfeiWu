@@ -29,7 +29,7 @@ It is a process that acts on all entities with the desired components. For examp
 The entities are identifers that are used to group components together. The components are data structures that contain data. An aspect of the game can therefopre be seen as a collection of components which contains all the data that is needed for describing that aspect. The systems are processes that act on the entities that have the desired components.
 
 
-![ECS](images/ECS/ECS_Simple_Layout.svg)
+![ECS](images/ECS/Simple_ECS.png)
 
 ## why is it good?
 It is easier to maintain and extend because of its compositional nature. Not like the traditional object oriented approach where you have to inherit from a base class and override methods which results in very complex inheritance trees. 
