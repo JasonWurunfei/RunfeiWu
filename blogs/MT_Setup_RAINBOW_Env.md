@@ -31,12 +31,15 @@ conda install igl
 conda install pyhull
 conda install wildmeshing
 conda install ipympl
+conda install tqdm
 conda install jupyter
 # this is not in the installation guide, but it is needed
 # to run the examples
 conda install -c conda-forge meshplot
 conda install -c conda-forge numba
 conda install -c anaconda networkx
+# to use USD
+pip install usd-core
 ```
 
 Here is the a quick run down for the purpose of each package:
