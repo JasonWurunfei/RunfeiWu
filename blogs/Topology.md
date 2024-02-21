@@ -87,4 +87,4 @@ $$
 
 A manifold is a topological space that locally looks like Euclidean space. A manifold is a set with a topology and a smooth structure. A smooth structure is a collection of charts that cover the manifold and are compatible with each other. A chart is a homeomorphism from an open set in the manifold to an open set in Euclidean space. The compatibility condition is that the transition maps between overlapping charts are smooth.
 
-![Manifold](images/Topology/Manifold.png)
+![Manifold](images/Topology/manifold.png)
