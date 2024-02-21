@@ -21,9 +21,11 @@ For example:
 
 4. polyhedra are topological spaces
 ![Polyhedra](images/Topology/Topological_space_example_polyhedrons.png)
+
 5. a Möbius strip is a topological space
 
 ![Möbius strip](images/Topology/topological_space_Möbius_Strip.jpg)
+
 6. a Klein bottle is a topological space
 
 ![Klein bottle](images/Topology/topological_space_Klein_bottle.jpg)
@@ -34,6 +36,7 @@ To distinguish between different topological spaces, we use topological invarian
 If we say two topological spaces are "the same" in terms of topology, we mean that we can smoothly deform one into the other without tearing or gluing.
 
 For example, a cirle is the same as a square in terms of topology, because we can deform a square into a circle. 
+
 ![Circle and Square](images/Topology/Topological_Invariant_example.png)
 
 the invariants of a topological space are:
