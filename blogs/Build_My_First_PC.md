@@ -256,17 +256,19 @@ After installing all the components, you can connect the power cable and turn on
 
 
 
-## Choose the parts (The dream PC setup)
-- GPU: RTX 4060 Ti (4000 kr)
-- CPU: Intel i9-14900K (5000 kr)
-- Motherboard: MSI MAG Z790 TOMAHAWK WIFI Bundkort - Intel Z790 - Intel LGA1700 socket - DDR5 RAM - ATX (2200 kr)
-- RAM: Corsair Vengeance RGB PRO DDR5 32GB (2x16GB) 4800MHz CL18 (2000 kr)
-- G.Skill Trident Z5 Neo DDR5-6000 C30 DC - 32GB (AMD EXPO) (1000 kr)
-- Crucial P3 SSD - 1TB - M.2 2280 - PCIe 3.0 (500 kr)
-- Corsair H100x RGB ELITE - CPU Vandkøling - Max 1 dBA (1100 kr)
-- MSI MAG A750GL PCIE5 - power supply - 750 Watt Strømforsyning - 750 Watt - 120 mm - 80 Plus Gold certified (1000 kr)
-- ENDORFY Regnum 400 Air - PC case - ATX - Kabinet - Tower - Sort (720 kr)
+## My PC Setup
+- GPU: RTX 4070 super (4899 CN¥)
+- CPU + Motherboard: Intel i7-14700K + MSI Pro Z790-A MAX WIFI (4284 CN¥)
+- RAM: Acer Predator Vesta II DDR5-6600 C34 (16GBx2) (783 CN¥)
+- Storage: Samsung 980 PRO 2TB (1184 CN¥)
+- CPU Cooler: Thermalright FROZEN WARFRAME 360 BLACK (497 CN¥)
+- Power Supply: SEASONIC FOCUS GX-750W 14CM (696 CN¥)
+- Chassis: Be Quiet! Silent Pure Base 500DX (999 CN¥)
 
-Total: 17520 kr (In Denmark)
+Total: 13342 CN¥
 
-The way I choose the parts may very much not be optimal. I just want to see how much it will cost to build a high-end PC. I will do more research and choose the parts more carefully later.
+The way I choose the parts may very much not be optimal but I am very satisfied with the result. I have been using it for a month and it is very performant. It can play all the games I want at highest settings. I use it to also run simulations which is also very fast. I am very happy with my first PC build. Here is a picture of my PC.
+
+![My PC](images/Build_My_First_PC/PC.jpg)
+
+The motherboard and cooling setup should allow me to have room for newer gen CPUs and GPUs. I also have 2 RAM slots and 3 more M.2 slots for more RAM and disk space for upgrades.
