@@ -1,5 +1,5 @@
 ---
-title: Convex_Functions
+title: Convex Functions
 datetime: 2024-03-04T09:19:55.966+01:00
 tags: [Mathematics, Optimization, Convexity]
 collection: [Math]

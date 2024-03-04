@@ -94,7 +94,9 @@ if (!fileName) {
 const filePath = path.join(__dirname, blogPath, `${fileName}.md`);
 
 // The blog title can be extracted from the filename or set to a default
-const title = fileName.replace(/-/g, '_'); // Replace hyphens with underscores
+var title;
+title = fileName.replace(/-/g, '_'); // Replace hyphens with underscores
+title = title.replace(/_/g, ' '); // Replace underscores with spaces
 
 writeMarkdownFile(title, filePath);
 
