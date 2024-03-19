@@ -3,6 +3,7 @@ title: Windows Keys
 datetime: 2023-12-12T21:57:00.000+01:00
 tags: [PC, build, Windows, keys]
 collection: [Hardware]
+activation: https://github.com/massgravel/Microsoft-Activation-Scripts
 ---
 # Windows Keys
 When you build your new PC, you need to install Windows. However, you need a Windows key to activate Windows. There are several ways to get a Windows key and there are different types of Windows keys. Here I will explain the different types of Windows keys and how to get them.
