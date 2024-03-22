@@ -269,6 +269,6 @@ Total: 13342 CN¥
 
 The way I choose the parts may very much not be optimal but I am very satisfied with the result. I have been using it for a month and it is very performant. It can play all the games I want at highest settings. I use it to also run simulations which is also very fast. I am very happy with my first PC build. Here is a picture of my PC.
 
-![My PC](images/Build_My_First_PC/pc.jpg)
+![My PC](images/Build_My_First_PC/PC.jpg)
 
 The motherboard and cooling setup should allow me to have room for newer gen CPUs and GPUs. I also have 2 RAM slots and 3 more M.2 slots for more RAM and disk space for upgrades.
